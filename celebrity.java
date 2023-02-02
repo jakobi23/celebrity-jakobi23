@@ -64,7 +64,7 @@ public class celebrity{
         this.eyeColor = newEyeColor;
     }
 
-    public void setCareer(int newAge){
+    public void setAge(int newAge){
         this.age = newAge;
     }
 
