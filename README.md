@@ -1,2 +1,0 @@
-# celebrity-jakobi23
-

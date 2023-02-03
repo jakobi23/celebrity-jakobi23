@@ -42,7 +42,7 @@ public class game{
             celebList.add(celebArray[i]);
         }
         
-        celebrity secretCeleb = celebList.get((int)((Math.random()*10) + 1));
+        celebrity secretCeleb = celebList.get((int)((Math.random()*10)));
         celebrity baseCeleb = new celebrity();
 
 
