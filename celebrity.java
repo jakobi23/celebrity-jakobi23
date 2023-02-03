@@ -134,9 +134,5 @@ public class celebrity{
     public boolean getDeceased(){
         return this.deceased;
     }
-     
-/**Function methods
- * 
- */
 
 }

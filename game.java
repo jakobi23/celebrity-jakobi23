@@ -15,11 +15,29 @@ public class game{
         }
     }
 
+    public static void clearScreen() {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+    }
+
+    static int catchInt(Scanner scan){
+        int max = 6;
+        int min = 1;
+        int numVal = 0;
+        while(numVal < min || (numVal > max)){
+            System.out.print("Enter a number: ");
+            numVal = scan.nextInt();
+            scan.nextLine();
+            //numVal = Integer.parseInt(scan.nextLine());
+        }
+        return numVal;
+    }
 
     public static boolean play()
     {
-        int cInt;
+        
         int x = 0;
+        String guess;
 
         ArrayList<celebrity> celebList = new ArrayList<celebrity>();
         
@@ -46,7 +64,7 @@ public class game{
         celebrity baseCeleb = new celebrity();
 
 
-        while(x<19)
+        while(x<2)
         {
             Scanner input = new Scanner(System.in);
 
@@ -57,104 +75,104 @@ public class game{
                                                              + "Height: " + baseCeleb.getHeight() +"\n"
                                                              + "Deceased: " + secretCeleb.getDeceased() +"\n");
             System.out.print("Which one would you like to guess (enter 1 - 6. 1 = name, 2 = eye color, 3 = age. you get the rest) : ");
-            cInt = input.nextInt();
+            int test = catchInt(input);
 
-            switch(cInt)
+            switch(test)
             {
                 case 1:
-                System.out.print("Who is the Secret Celebrity: ");
-                if(input.nextLine().equals(secretCeleb.getName()))
-                {
-                    winOrLose = true;
-                    input.close();
-                    return winOrLose;  
-                }
+                    System.out.print("Who is the Secret Celebrity: ");
+                    guess = input.nextLine();
+                    if(guess.equals(secretCeleb.getName()))
+                    {
+                        winOrLose = true;
+                        input.close();
+                        clearScreen();
+                        return winOrLose;
+                    }
                 
-                else
-                {
-                    System.out.println("Incorrect");
-                }
+                    else
+                    {
+                        clearScreen();
+                        System.out.println("Incorrect");
+                    }
                 break;
 
                 case 2:
-                System.out.print("Guess an eye color: ");
-                if(input.nextLine().toLowerCase().equals(secretCeleb.getEyeColor().toLowerCase()))
-                {
-                    baseCeleb.setEyeColor(secretCeleb.getEyeColor());
-                }
-                else
-                {
-                    System.out.println("Incorrect");
-                }
-                x++;
+                    System.out.print("Guess an eye color: ");
+                    if(input.nextLine().toLowerCase().equals(secretCeleb.getEyeColor().toLowerCase()))
+                    {
+                        baseCeleb.setEyeColor(secretCeleb.getEyeColor());
+                        clearScreen();
+                    }
+                    else
+                    {
+                        clearScreen();
+                        System.out.println("Incorrect");
+                    }
+                    x++;
                 break;
 
                 case 3:
-                System.out.print("Guess an age: ");
-                if(input.nextInt()==secretCeleb.getAge())
-                {
-                    baseCeleb.setAge(secretCeleb.getAge());
-                }
-                else
-                {
-                    System.out.println("Incorrect");
-                }
-                x++;
+                    System.out.print("Guess an age: ");
+                    if(input.nextInt()==secretCeleb.getAge())
+                    {
+                        baseCeleb.setAge(secretCeleb.getAge());
+                        clearScreen();
+
+                    }
+                    else
+                    {
+                        clearScreen();
+                        System.out.println("Incorrect");
+                    }
+                    x++;
                 break;
 
                 case 4:
-                System.out.print("Guess an hair color: ");
-                if(input.nextLine().toLowerCase().equals(secretCeleb.getHairColor().toLowerCase()))
-                {
-                    baseCeleb.setHairColor(secretCeleb.getHairColor());
-                }
-                else
-                {
-                    System.out.println("Incorrect");
-                }
-                x++;
+                    System.out.print("Guess an hair color: ");
+                    guess = input.nextLine();
+                    if(input.nextLine().toLowerCase().equals(secretCeleb.getHairColor().toLowerCase()))
+                    {
+                        baseCeleb.setHairColor(secretCeleb.getHairColor());
+                        clearScreen();
+                    }
+                    else
+                    {
+                        clearScreen();
+                        System.out.println("Incorrect");
+                    }
+                    x++;
                 break;
 
                 case 5:
-                System.out.print("Guess a profession: ");
-                if(input.nextLine().toLowerCase().equals(secretCeleb.getProfession().toLowerCase()))
-                {
-                    baseCeleb.setEyeColor(secretCeleb.getEyeColor());
-                }
-                else
-                {
-                    System.out.println("Incorrect");
-                }
-                x++;
+                    System.out.print("Guess a profession: ");
+                    if(input.nextLine().toLowerCase().equals(secretCeleb.getProfession().toLowerCase()))
+                    {
+                        baseCeleb.setEyeColor(secretCeleb.getEyeColor());
+                        clearScreen();
+                    }
+                    else
+                    {
+                        clearScreen();
+                        System.out.println("Incorrect");
+                    }
+                    x++;
                 break;
 
                 case 6:
-                System.out.print("Guess an height (5'6 = 5.5): ");
-                if(input.nextDouble()==secretCeleb.getHeight())
-                {
-                    baseCeleb.setHeight(secretCeleb.getHeight());
-                }
-                else
-                {
-                    System.out.println("Incorrect");
-                }
-                x++;
+                    System.out.print("Guess an height (5'6 = 5.5): ");
+                    if(input.nextDouble()==secretCeleb.getHeight())
+                    {
+                        baseCeleb.setHeight(secretCeleb.getHeight());
+                        clearScreen();
+                    }
+                    else
+                    {
+                        clearScreen();
+                        System.out.println("Incorrect");
+                    }
+                    x++;
                 break;
-
-                /*case 7:
-                System.out.print("Are they dead or alive (): ");
-                if(input.nextBoolean()==secretCeleb.getDeceased())
-                {
-                    baseCeleb.setDeceased(secretCeleb.getDeceased());
-                }
-                else
-                {
-                    System.out.println("Incorrect");
-                }
-                x++;
-                */
-
-
             }
             input.close();
         }
