@@ -35,25 +35,25 @@ public class game{
 
     public static boolean play()
     {
-        
+        Scanner input = new Scanner(System.in);
         int x = 0;
         String guess;
 
         ArrayList<celebrity> celebList = new ArrayList<celebrity>();
         
         
-        celebrity tSwift = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", 5.95, false);
-        celebrity sLJackson = new celebrity("Samuel L Jackson", "brown", 74, "Bald", "Actor", 6.1, false);
-        celebrity rCuomo = new celebrity("Rivers Cuomo", "brown", 33, "brown", "Singer", 5.5, false);
-        celebrity tSwift3 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
-        celebrity tSwift4 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
-        celebrity tSwift5 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
-        celebrity tSwift6 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
-        celebrity tSwift7 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
-        celebrity tSwift8 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
-        celebrity tSwift9 = new celebrity("Taylor Swift", "blue", 33, "Blonde", "Singer", x, false);
+        celebrity tSwift = new celebrity("Taylor Swift", "Blue", 33, "Blonde", "Singer", 5.95, false);
+        celebrity sLJackson = new celebrity("Samuel L Jackson", "Brown", 74, "Bald", "Actor", 6.1, false);
+        celebrity rCuomo = new celebrity("Rivers Cuomo", "Brown", 52, "Brown", "Singer", 5.5, false);
+        celebrity mbJordan = new celebrity("Michael B Jordan", "Brown", 35, "Black", "Actor", 6.0, false);
+        celebrity ePresley = new celebrity("Elvis Presley", "Blue", 42, "Brown", "Singer", 6.0, true);
+        celebrity vVGogh = new celebrity("Vincent Van Gogh", "Green", 47, "Red", "Artist", 5.55, true);
+        celebrity cRock = new celebrity("Chris Rock", "Brown", 57, "Black", "Comedian", 5.9, false);
+        celebrity sDogg = new celebrity("Snoop Dogg", "Brown", 51, "Black", "Rapper", 6.2, false);
+        celebrity zendaya = new celebrity("Zendaya", "Brown", 26, "Brown", "Actor", 5.9, false);
+        celebrity jWRLD = new celebrity("Juice WRLD", "Brown", 21, "Black", "Rapper", 5.55, true);
         
-        celebrity[] celebArray = {tSwift, sLJackson, rCuomo, tSwift3, tSwift4, tSwift5, tSwift6, tSwift7, tSwift8, tSwift9};
+        celebrity[] celebArray = {tSwift, sLJackson, rCuomo, mbJordan, ePresley, vVGogh, cRock, sDogg, zendaya, jWRLD};
         
         for(int i = 0; i<10; i++)
         {
@@ -64,10 +64,8 @@ public class game{
         celebrity baseCeleb = new celebrity();
 
 
-        while(x<2)
+        while(x<19)
         {
-            Scanner input = new Scanner(System.in);
-
             System.out.println("Secret celebrity traits: \n" + "Eye Color: " + baseCeleb.getEyeColor() +"\n"
                                                              + "Age: " + baseCeleb.getAge() +"\n" 
                                                              + "Hair Color: " + baseCeleb.getHairColor() +"\n"
@@ -85,7 +83,6 @@ public class game{
                     if(guess.equals(secretCeleb.getName()))
                     {
                         winOrLose = true;
-                        input.close();
                         clearScreen();
                         return winOrLose;
                     }
@@ -174,8 +171,8 @@ public class game{
                     x++;
                 break;
             }
-            input.close();
         }
+        input.close();
         return winOrLose;
     }
 
